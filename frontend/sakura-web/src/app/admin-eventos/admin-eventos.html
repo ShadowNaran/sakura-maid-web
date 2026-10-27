@@ -1,0 +1,55 @@
+<form (ngSubmit)="guardarEvento()">
+  <h3>{{ editandoId() === null ? 'Agregar evento' : 'Editar evento' }}</h3>
+
+  <label>Título
+    <input name="tituloEvento" [(ngModel)]="eventoNuevo.titulo" required minlength="2" maxlength="140">
+  </label>
+
+  <label>Descripción
+    <textarea name="descripcionEvento" [(ngModel)]="eventoNuevo.descripcion" required maxlength="4000"></textarea>
+  </label>
+
+  <label>Fecha y hora
+    <input name="fechaEvento" type="datetime-local" [(ngModel)]="eventoNuevo.iniciaEn" required>
+  </label>
+
+  <label>Ubicación
+    <input name="ubicacionEvento" [(ngModel)]="eventoNuevo.ubicacion" maxlength="200">
+  </label>
+
+  <label>URL del afiche
+    <input name="aficheEvento" [(ngModel)]="eventoNuevo.aficheUrl" maxlength="500">
+  </label>
+
+  <label>Estado
+    <select name="estadoEvento" [(ngModel)]="eventoNuevo.estado">
+      <option value="Published">Publicado</option>
+      <option value="Cancelled">Cancelado</option>
+    </select>
+  </label>
+
+  <div class="acciones">
+    <button type="submit" [disabled]="guardando()">
+      {{ guardando() ? 'Guardando...' : (editandoId() === null ? 'Agregar evento' : 'Actualizar evento') }}
+    </button>
+    @if (editandoId() !== null) {
+      <button type="button" class="secundario" (click)="cancelarEdicion()">Cancelar</button>
+    }
+  </div>
+</form>
+
+@if (aviso()) { <p class="aviso">{{ aviso() }}</p> }
+@if (error()) { <p class="error">{{ error() }}</p> }
+
+<div class="lista-admin">
+  <h4>Eventos registrados</h4>
+  @for (evento of eventos(); track evento.id) {
+    <div class="item-admin">
+      <span><strong>{{ evento.titulo }}</strong> — {{ evento.estado === 'Published' ? 'Publicado' : 'Cancelado' }}</span>
+      <div class="acciones">
+        <button type="button" class="secundario" (click)="seleccionarParaEditar(evento)">Editar</button>
+        <button type="button" class="borrar" (click)="eliminarEvento(evento.id)">Borrar</button>
+      </div>
+    </div>
+  }
+</div>

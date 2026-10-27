@@ -1,0 +1,24 @@
+<section>
+  <h2>Eventos</h2>
+  @if (cargando()) { <p>Cargando eventos...</p> }
+  @else if (error()) { <p class="error">{{ error() }}</p> }
+  @else if (eventos().length === 0) { <p>No hay eventos registrados.</p> }
+  @else {
+    <div class="lista">
+      @for (evento of eventos(); track evento.id) {
+        <article>
+          @if (evento.aficheUrl) {
+            <img [src]="evento.aficheUrl" [alt]="evento.titulo">
+          }
+          <h3>{{ evento.titulo }}</h3>
+          <p>{{ evento.descripcion }}</p>
+          <p>{{ evento.iniciaEn | date:'dd/MM/yyyy HH:mm' }}</p>
+          <small>
+            {{ evento.ubicacion || 'Ubicación por confirmar' }} ·
+            {{ evento.estado === 'Published' ? 'Publicado' : 'Cancelado' }}
+          </small>
+        </article>
+      }
+    </div>
+  }
+</section>

@@ -1,0 +1,36 @@
+<form (ngSubmit)="guardarCategoria()">
+  <h3>{{ editandoId() === null ? 'Agregar categoría' : 'Editar categoría' }}</h3>
+
+  <label>Nombre
+    <input name="nombreCategoria" [(ngModel)]="categoriaNueva.nombre" required minlength="2" maxlength="80">
+  </label>
+
+  <label>Descripción
+    <textarea name="descripcionCategoria" [(ngModel)]="categoriaNueva.descripcion" maxlength="300"></textarea>
+  </label>
+
+  <div class="acciones">
+    <button type="submit" [disabled]="guardando()">
+      {{ guardando() ? 'Guardando...' : (editandoId() === null ? 'Agregar categoría' : 'Actualizar categoría') }}
+    </button>
+    @if (editandoId() !== null) {
+      <button type="button" class="secundario" (click)="cancelarEdicion()">Cancelar</button>
+    }
+  </div>
+</form>
+
+@if (aviso()) { <p class="aviso">{{ aviso() }}</p> }
+@if (error()) { <p class="error">{{ error() }}</p> }
+
+<div class="lista-admin">
+  <h4>Categorías registradas</h4>
+  @for (categoria of categorias(); track categoria.id) {
+    <div class="item-admin">
+      <span><strong>{{ categoria.nombre }}</strong> — {{ categoria.descripcion || 'Sin descripción' }}</span>
+      <div class="acciones">
+        <button type="button" class="secundario" (click)="seleccionarParaEditar(categoria)">Editar</button>
+        <button type="button" class="borrar" (click)="eliminarCategoria(categoria.id)">Borrar</button>
+      </div>
+    </div>
+  }
+</div>

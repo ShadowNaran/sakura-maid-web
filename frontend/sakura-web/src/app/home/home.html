@@ -1,0 +1,219 @@
+<div class="home-page">
+  <!-- 2. Hero principal -->
+  <section class="hero" aria-labelledby="hero-titulo">
+    <div class="hero-columna-texto">
+      <p class="eyebrow">SAKURA MAID CAFÉ · TARIJA</p>
+      <h1 id="hero-titulo" class="hero-title">Un rinconcito de Japón en Tarija 🌸</h1>
+      <p class="hero-descripcion">
+        Descubre sabores inspirados en Japón, disfruta de un delicioso café y comparte momentos especiales en un ambiente acogedor.
+      </p>
+      <div class="hero-botones">
+        <a class="btn-vino" routerLink="/productos">Explorar nuestro menú</a>
+        <a class="btn-pastel" routerLink="/sobre-nosotros">Conócenos</a>
+      </div>
+    </div>
+
+    <div class="hero-columna-visual" aria-hidden="true">
+      <div class="composicion-japonesa">
+        <span class="petalo petalo-uno">✿</span>
+        <span class="petalo petalo-dos">✿</span>
+        <div class="ventana-shoji">
+          <div class="circulo-sol"></div>
+          <div class="tarjeta-vitrina">
+            <p class="vitrina-japones">桜メイドカフェ</p>
+            <p class="vitrina-titulo">Arte culinario y hospitalidad japonesa</p>
+            <div class="vitrina-etiquetas">
+              <span>Ramen tradicional</span>
+              <span>Café de especialidad</span>
+              <span>Repostería japonesa</span>
+            </div>
+          </div>
+          <div class="detalle-bandeja">
+            <div class="mini-bloque">
+              <strong>Ambiente cálido</strong>
+              <span>Inspiración japonesa en cada detalle</span>
+            </div>
+            <div class="mini-bloque">
+              <strong>Tarija, Bolivia</strong>
+              <span>{{ cafe.direccion }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  @if (error()) {
+    <p class="mensaje-error" role="alert">{{ error() }}</p>
+  }
+
+  <!-- 3. Franja de especialidades -->
+  <section class="franja-especialidades" aria-label="Especialidades principales">
+    <article class="especialidad-item">
+      <div class="especialidad-icono" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M4 11h16a7 7 0 0 1-7 7h-2a7 7 0 0 1-7-7Z" />
+          <path d="M6 7h12M8 4v3m4-3v3m4-3v3M9 18v2h6v-2" />
+        </svg>
+      </div>
+      <div>
+        <h2>Ramen japonés</h2>
+        <p>Caldos aromáticos y preparación cuidada al estilo tradicional.</p>
+      </div>
+    </article>
+
+    <article class="especialidad-item">
+      <div class="especialidad-icono" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M17 8h1a3 3 0 0 1 0 6h-1" />
+          <path d="M5 8h12v5a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V8Z" />
+          <path d="M4 20h14" />
+        </svg>
+      </div>
+      <div>
+        <h2>Cafés y bebidas</h2>
+        <p>Opciones calientes y frías elaboradas para acompañar cada charla.</p>
+      </div>
+    </article>
+
+    <article class="especialidad-item">
+      <div class="especialidad-icono" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M12 4c2.5 0 4.5 2 4.5 4.5H7.5C7.5 6 9.5 4 12 4Z" />
+          <path d="M5 12h14l-1.2 7H6.2L5 12Z" />
+          <path d="M4 12h16" />
+        </svg>
+      </div>
+      <div>
+        <h2>Meriendas y postres</h2>
+        <p>Dulces delicados y presentaciones pensadas para endulzar tu tarde.</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- 4. Categorías -->
+  <section class="seccion-categorias" aria-labelledby="categorias-titulo">
+    <div class="seccion-cabecera">
+      <div>
+        <p class="eyebrow">NUESTRA PROPUESTA</p>
+        <h2 id="categorias-titulo" class="seccion-titulo">Sabores para cada momento</h2>
+      </div>
+      <a class="btn-secundario" routerLink="/categorias">Explorar todas las categorías</a>
+    </div>
+
+    @if (categoriasDestacadas().length > 0) {
+      <div class="categorias-grid">
+        @for (categoria of categoriasDestacadas(); track categoria.id; let indice = $index) {
+          <article class="categoria-card">
+            <span class="categoria-numero">0{{ indice + 1 }}</span>
+            <h3>{{ categoria.nombre }}</h3>
+            <p>{{ categoria.descripcion || 'Descubre los productos disponibles en esta categoría.' }}</p>
+            <a class="enlace-discreto" routerLink="/categorias">Ver categoría →</a>
+          </article>
+        }
+      </div>
+    }
+  </section>
+
+  <!-- 5. Productos destacados -->
+  @if (productosDestacados().length > 0) {
+    <section class="seccion-destacados" aria-labelledby="carta-titulo">
+      <div class="seccion-cabecera">
+        <div>
+          <p class="eyebrow">SELECCIÓN DEL MENÚ</p>
+          <h2 id="carta-titulo" class="seccion-titulo">Descubre nuestra carta</h2>
+        </div>
+        <a class="btn-secundario" routerLink="/productos">Ver todo el menú</a>
+      </div>
+
+      <div class="productos-grid">
+        @for (producto of productosDestacados(); track producto.id) {
+          <app-producto-card [producto]="producto" (verDetalle)="abrirDetalle($event)" />
+        }
+      </div>
+    </section>
+  }
+
+  <!-- 6. Experiencia Sakura -->
+  <section class="seccion-experiencia" aria-labelledby="experiencia-titulo">
+    <div class="experiencia-texto">
+      <p class="eyebrow">IDENTIDAD SAKURA</p>
+      <h2 id="experiencia-titulo" class="seccion-titulo">Más que un café, una experiencia</h2>
+      <p class="experiencia-parrafo">
+        En {{ cafe.nombre }} encontrarás un espacio inspirado en la cultura japonesa, pensado para disfrutar de buena comida, café y momentos especiales con amigos.
+      </p>
+      <div class="experiencia-enlaces">
+        <a class="btn-vino" routerLink="/eventos">Consultar agenda de eventos</a>
+        <a class="btn-secundario" routerLink="/novedades">Ver novedades del café</a>
+      </div>
+    </div>
+
+    <div class="experiencia-decoracion" aria-hidden="true">
+      <div class="marco-sakura">
+        <span class="sello-japones">おもてなし · Hospitalidad</span>
+        <div class="tarjetas-ambiente">
+          <div class="ambiente-item">
+            <strong>Estética cuidada</strong>
+            <p>Colores suaves, detalles florales de sakura y un salón tranquilo en Tarija.</p>
+          </div>
+          <div class="ambiente-item">
+            <strong>Encuentros especiales</strong>
+            <p>Un rincón pensado para conversar, degustar la carta y desconectar de la rutina.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Ubicación y contacto -->
+  <section class="seccion-contacto" aria-labelledby="contacto-titulo">
+    <div class="contacto-info">
+      <p class="eyebrow">VISÍTANOS EN TARIJA</p>
+      <h2 id="contacto-titulo" class="seccion-titulo">{{ cafe.nombre }}</h2>
+      <p class="frase-mision">“Nuestra misión es deleitar tu paladar y alegrar tu corazón”.</p>
+
+      <dl class="datos-contacto">
+        <div>
+          <dt>Dirección</dt>
+          <dd>{{ cafe.direccion }}</dd>
+        </div>
+        <div>
+          <dt>Teléfono</dt>
+          <dd><a [href]="'tel:' + cafe.telefonoHref">{{ cafe.telefono }}</a></dd>
+        </div>
+      </dl>
+
+      <div class="contacto-acciones">
+        <a
+          class="btn-vino"
+          [href]="cafe.enlaceMapa"
+          target="_blank"
+          rel="noopener noreferrer">
+          Abrir en Google Maps
+        </a>
+        <a
+          class="btn-pastel"
+          [href]="cafe.enlaceWhatsApp"
+          target="_blank"
+          rel="noopener noreferrer">
+          Escribir por WhatsApp
+        </a>
+        <a class="btn-secundario" routerLink="/sobre-nosotros">Sobre nosotros</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Cierre visual -->
+  <footer class="cierre-visual">
+    <div class="cierre-marca">
+      <span class="cierre-flor" aria-hidden="true">✿</span>
+      <strong>{{ cafe.nombre }}</strong>
+      <span>· Tarija, Bolivia</span>
+    </div>
+    <div class="cierre-enlaces">
+      <a routerLink="/productos">Menú</a>
+      <a routerLink="/categorias">Categorías</a>
+      <a routerLink="/sobre-nosotros">Información y redes oficiales</a>
+    </div>
+  </footer>
+</div>

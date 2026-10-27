@@ -1,0 +1,11 @@
+<article class="producto-card" [appResaltarDestacado]="producto().esDestacado">
+  @if (producto().imagenUrl) {
+    <img [src]="producto().imagenUrl" [alt]="producto().nombre">
+  }
+  <h3>{{ producto().nombre }}</h3>
+  <p>{{ producto().descripcion }}</p>
+  <p><strong>Precio:</strong> {{ producto().precio === null ? 'Sin precio' : producto().precio + ' Bs' }}</p>
+  <p><strong>Categoría:</strong> {{ producto().nombreCategoria || 'Sin categoría' }}</p>
+  <p><strong>Estado:</strong> {{ producto().estaDisponible | estadoProducto }}</p>
+  <button type="button" (click)="verDetalle.emit(producto().id)">Ver detalle</button>
+</article>

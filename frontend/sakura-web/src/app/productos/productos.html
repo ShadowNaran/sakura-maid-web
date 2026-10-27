@@ -1,0 +1,25 @@
+<section>
+  <h2>Productos</h2>
+  <p>Conoce los productos disponibles en {{ cafe.nombre }}.</p>
+
+  @if (categoriaId()) {
+    <p class="filtro-activo">
+      Mostrando productos filtrados por categoría.
+      <a routerLink="/productos">Ver todos los productos</a>
+    </p>
+  }
+
+  @if (cargando()) {
+    <p>Cargando productos...</p>
+  } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+  } @else if (productosFiltrados().length === 0) {
+    <p>No hay productos registrados.</p>
+  } @else {
+    <div class="productos-grid">
+      @for (producto of productosFiltrados(); track producto.id) {
+        <app-producto-card [producto]="producto" (verDetalle)="abrirDetalle($event)" />
+      }
+    </div>
+  }
+</section>

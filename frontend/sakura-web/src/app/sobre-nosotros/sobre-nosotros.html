@@ -1,0 +1,55 @@
+<section class="sobre-nosotros-page">
+  <div class="cabecera">
+    <div>
+      <p class="eyebrow">CONÓCENOS</p>
+      <h2 class="seccion-titulo">Sobre nosotros</h2>
+    </div>
+    <a class="boton-admin" routerLink="/admin">Admin</a>
+  </div>
+
+  <article class="sobre-nosotros-card">
+    <div class="presentacion-cafe">
+      <div class="identidad-cafe">
+        <img class="logo-cafe" [src]="cafe.logoUrl" [alt]="'Logo de ' + cafe.nombre">
+        <div>
+          <span class="subtitulo-cafe">Cafetería temática japonesa · Tarija, Bolivia</span>
+          <h3>{{ cafe.nombre }}</h3>
+          <div class="etiquetas-cafe">
+            <span>🍜 Ramen</span>
+            <span>☕ Café</span>
+            <span>🍰 Meriendas</span>
+          </div>
+        </div>
+      </div>
+      <p class="descripcion-cafe">{{ cafe.descripcion }}</p>
+    </div>
+
+    <img class="foto-presentacion" [src]="cafe.presentacionUrl" [alt]="'Especialidades de ' + cafe.nombre">
+
+    <div class="datos-grid">
+      <div class="dato-box">
+        <span class="dato-label">Dirección</span>
+        <strong>{{ cafe.direccion }}</strong>
+      </div>
+      <div class="dato-box">
+        <span class="dato-label">Teléfono / WhatsApp</span>
+        <strong>{{ cafe.telefono }}</strong>
+      </div>
+      <div class="dato-box">
+        <span class="dato-label">Horario de atención</span>
+        <strong>{{ cafe.horarioAtencion }}</strong>
+      </div>
+    </div>
+
+    <div class="redes-seccion">
+      <h4>Canales oficiales y pedidos</h4>
+      <div class="redes-botones">
+        <a class="btn-vino" [href]="cafe.enlaceWhatsApp" target="_blank" rel="noopener noreferrer">WhatsApp oficial</a>
+        <a class="btn-pastel" [href]="cafe.enlacePedidos" target="_blank" rel="noopener noreferrer">Realizar pedido</a>
+        <a class="btn-secundario" [href]="cafe.enlaceInstagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="btn-secundario" [href]="cafe.enlaceTikTok" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a class="btn-secundario" [href]="cafe.enlaceFacebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+    </div>
+  </article>
+</section>

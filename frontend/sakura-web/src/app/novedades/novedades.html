@@ -1,0 +1,21 @@
+<section>
+  <h2>Novedades</h2>
+  @if (cargando()) { <p>Cargando novedades...</p> }
+  @else if (error()) { <p class="error">{{ error() }}</p> }
+  @else if (novedades().length === 0) { <p>No hay novedades registradas.</p> }
+  @else {
+    <div class="lista">
+      @for (novedad of novedades(); track novedad.id) {
+        <article>
+          @if (novedad.imagenUrl) {
+            <img [src]="novedad.imagenUrl" [alt]="novedad.titulo">
+          }
+          <h3>{{ novedad.titulo }}</h3>
+          <strong>{{ novedad.resumen }}</strong>
+          <p>{{ novedad.contenido }}</p>
+          <small>Publicada</small>
+        </article>
+      }
+    </div>
+  }
+</section>

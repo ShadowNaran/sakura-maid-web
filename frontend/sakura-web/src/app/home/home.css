@@ -1,0 +1,34 @@
+:host{display:block;overflow-x:clip}
+.home-page{width:min(1140px,calc(100% - 2rem));margin:1.75rem auto 3.5rem;display:grid;gap:2.6rem}
+.mensaje-error{margin:0;border:1px solid #e5a9b4;border-radius:.8rem;background:#fff2f4;padding:.85rem 1rem;color:#9b2639}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:2rem;border:1px solid #f0d5e2;border-radius:1.7rem;background:linear-gradient(135deg,#fff9fc,#f8dce8);padding:clamp(1.5rem,4vw,2.6rem);box-shadow:0 12px 28px rgb(141 54 91/8%)}
+.hero-columna-texto,.experiencia-texto,.contacto-info,.tarjeta-vitrina,.marco-sakura,.tarjetas-ambiente{display:grid;gap:.85rem}
+.hero-title{margin:0;color:#8d365b;font-family:Georgia,serif;font-size:clamp(2rem,4.3vw,3.1rem);line-height:1.1}
+.hero-descripcion,.experiencia-parrafo{margin:0;max-width:54ch;color:#303045;font-size:1.04rem;line-height:1.65}
+.hero-botones,.experiencia-enlaces,.contacto-acciones,.vitrina-etiquetas{display:flex;flex-wrap:wrap;gap:.75rem}
+.composicion-japonesa{position:relative;padding:.25rem}
+.petalo{position:absolute;display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border:1px solid #f0cde0;border-radius:999px;background:#fff9fc;color:#e78ebe}
+.petalo-uno{top:-.2rem;right:.7rem}
+.petalo-dos{bottom:-.2rem;left:.7rem}
+.ventana-shoji{position:relative;overflow:hidden;display:grid;gap:.85rem;border:1px solid #ebd0dd;border-radius:1.3rem;background:#fff9fc;padding:1.3rem}
+.circulo-sol{position:absolute;top:-2rem;right:-2rem;width:7rem;height:7rem;border-radius:999px;background:radial-gradient(circle,#f8dce8,transparent 70%)}
+.tarjeta-vitrina{position:relative;border:1px solid #f2dbe6;border-radius:1rem;background:#fff;padding:1.1rem}
+.vitrina-japones{margin:0;color:#e78ebe;font-size:.76rem;font-weight:800;letter-spacing:.12em}
+.vitrina-titulo,.categoria-card h3{margin:0;color:#8d365b;font-family:Georgia,serif;font-size:1.22rem;font-weight:700}
+.vitrina-etiquetas span,.sello-japones{width:fit-content;border-radius:999px;background:#f8dce8;padding:.25rem .7rem;color:#8d365b;font-size:.78rem;font-weight:700}
+.detalle-bandeja{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+.mini-bloque,.ambiente-item{border:1px solid #eed6e2;border-radius:.9rem;background:#fff;padding:.85rem 1rem}
+.mini-bloque strong,.ambiente-item strong,.especialidad-item h2{display:block;margin:0 0 .2rem;color:#8d365b;font-size:.98rem}
+.mini-bloque span,.ambiente-item p,.especialidad-item p,.categoria-card p{margin:0;color:#303045;font-size:.9rem;line-height:1.5}
+.franja-especialidades,.categorias-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}
+.especialidad-item,.categoria-card{border:1px solid #eed6e2;border-radius:1.2rem;background:#fff;padding:1.25rem;box-shadow:0 8px 18px rgb(141 54 91/5%);transition:transform 180ms ease,border-color 180ms ease}
+.especialidad-item{display:flex;align-items:flex-start;gap:.85rem}
+.especialidad-item:hover,.categoria-card:hover{transform:translateY(-2px);border-color:#e78ebe}
+.especialidad-icono{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border-radius:.75rem;background:#f8dce8;color:#8d365b}
+.especialidad-icono svg{width:1.3rem;height:1.3rem}
+.categoria-card{display:flex;flex-direction:column;gap:.5rem}
+.categoria-numero{width:fit-content;border-radius:999px;background:#a7d0f2;padding:.2rem .65rem;color:#303045;font-size:.75rem;font-weight:800}
+.enlace-discreto{margin-top:auto;padding-top:.3rem;width:fit-content;color:#8d365b;font-weight:700;text-decoration:none}
+.productos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem}
+@media(max-width:960px){.hero,.franja-especialidades,.categorias-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.detalle-bandeja{grid-template-columns:1fr}.hero-botones,.experiencia-enlaces,.contacto-acciones{flex-direction:column;align-items:stretch}}

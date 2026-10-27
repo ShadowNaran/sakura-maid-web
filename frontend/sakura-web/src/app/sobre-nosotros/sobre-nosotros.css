@@ -1,0 +1,163 @@
+.sobre-nosotros-page {
+  width: min(940px, calc(100% - 2rem));
+  margin: 2rem auto 3.5rem;
+}
+
+.cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.boton-admin {
+  border-radius: 999px;
+  background: #8d365b;
+  padding: 0.65rem 1.25rem;
+  color: #fff9fc;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.boton-admin:hover {
+  transform: translateY(-1px);
+  background: #752a4a;
+}
+
+.sobre-nosotros-card {
+  display: grid;
+  gap: 1.75rem;
+  border: 1px solid #eed6e2;
+  border-radius: 1.6rem;
+  background: #fff;
+  padding: clamp(1.35rem, 3.5vw, 2.25rem);
+  box-shadow: 0 14px 32px rgb(141 54 91 / 7%);
+}
+
+.presentacion-cafe {
+  display: grid;
+  gap: 1.25rem;
+  border-bottom: 1px solid #f3dfe9;
+  padding-bottom: 1.5rem;
+}
+
+.identidad-cafe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.logo-cafe {
+  width: 96px;
+  height: 96px;
+  border: 2px solid #f8dce8;
+  border-radius: 1.25rem;
+  object-fit: cover;
+  box-shadow: 0 8px 18px rgb(141 54 91 / 10%);
+}
+
+.subtitulo-cafe {
+  display: block;
+  color: #e78ebe;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.identidad-cafe h3 {
+  margin: 0.25rem 0 0.55rem;
+  color: #8d365b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+}
+
+.etiquetas-cafe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.etiquetas-cafe span {
+  border-radius: 999px;
+  background: #f8dce8;
+  padding: 0.28rem 0.75rem;
+  color: #8d365b;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.descripcion-cafe {
+  margin: 0;
+  color: #303045;
+  font-size: 1.03rem;
+  line-height: 1.68;
+}
+
+.foto-presentacion {
+  width: 100%;
+  max-height: 360px;
+  border: 1px solid #eed6e2;
+  border-radius: 1.25rem;
+  object-fit: cover;
+}
+
+.datos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.dato-box {
+  display: grid;
+  gap: 0.3rem;
+  border: 1px solid #eed6e2;
+  border-radius: 1.1rem;
+  background: #fff9fc;
+  padding: 1rem 1.15rem;
+}
+
+.dato-label {
+  color: #e78ebe;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dato-box strong {
+  color: #303045;
+  font-size: 0.96rem;
+  line-height: 1.45;
+}
+
+.redes-seccion {
+  display: grid;
+  gap: 0.85rem;
+  border-top: 1px solid #f3dfe9;
+  padding-top: 1.25rem;
+}
+
+.redes-seccion h4 {
+  margin: 0;
+  color: #8d365b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+}
+
+.redes-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (max-width: 560px) {
+  .redes-botones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

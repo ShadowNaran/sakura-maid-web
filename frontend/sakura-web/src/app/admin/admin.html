@@ -1,0 +1,19 @@
+<section>
+  <a routerLink="/sobre-nosotros">Volver a Sobre nosotros</a>
+  <h2>Panel de administración</h2>
+  <p>Selecciona la sección para agregar o actualizar registros.</p>
+
+  <nav>
+    <button type="button" (click)="cambiarSeccion('productos')">Productos</button>
+    <button type="button" (click)="cambiarSeccion('categorias')">Categorías</button>
+    <button type="button" (click)="cambiarSeccion('eventos')">Eventos</button>
+    <button type="button" (click)="cambiarSeccion('novedades')">Novedades</button>
+  </nav>
+
+  @switch (seccion()) {
+    @case ('productos') { <app-admin-productos /> }
+    @case ('categorias') { <app-admin-categorias /> }
+    @case ('eventos') { <app-admin-eventos /> }
+    @case ('novedades') { <app-admin-novedades /> }
+  }
+</section>

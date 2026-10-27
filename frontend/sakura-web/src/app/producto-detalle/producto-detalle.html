@@ -1,0 +1,18 @@
+<section>
+  <a routerLink="/productos">Volver a productos</a>
+  <h2>Detalle del producto</h2>
+
+  @if (cargando()) {
+    <p>Cargando producto...</p>
+  } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+  } @else if (producto(); as item) {
+    @if (item.imagenUrl) {
+      <img [src]="item.imagenUrl" [alt]="item.nombre">
+    }
+    <h3>{{ item.nombre }}</h3>
+    <p>{{ item.descripcion }}</p>
+    <p>Precio: {{ item.precio === null ? 'Sin precio' : item.precio + ' Bs' }}</p>
+    <p>Categoría: {{ item.nombreCategoria || 'Sin categoría' }}</p>
+  }
+</section>

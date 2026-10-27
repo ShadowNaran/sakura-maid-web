@@ -1,0 +1,56 @@
+<form (ngSubmit)="guardarProducto()">
+  <h3>{{ editandoId() === null ? 'Agregar producto' : 'Editar producto' }}</h3>
+
+  <label>Nombre
+    <input name="nombreProducto" [(ngModel)]="productoNuevo.nombre" required minlength="2" maxlength="120">
+  </label>
+
+  <label>Descripción
+    <textarea name="descripcionProducto" [(ngModel)]="productoNuevo.descripcion" required maxlength="2000"></textarea>
+  </label>
+
+  <label>Precio
+    <input name="precioProducto" type="number" min="0" [(ngModel)]="productoNuevo.precio">
+  </label>
+
+  <label>Categoría
+    <select name="categoriaProducto" [(ngModel)]="productoNuevo.categoriaId">
+      <option [ngValue]="null">Sin categoría</option>
+      @for (categoria of categorias(); track categoria.id) {
+        <option [ngValue]="categoria.id">{{ categoria.nombre }}</option>
+      }
+    </select>
+  </label>
+
+  <label>URL de imagen
+    <input name="imagenProducto" [(ngModel)]="productoNuevo.imagenUrl" maxlength="500">
+  </label>
+
+  <label class="opcion"><input name="destacadoProducto" type="checkbox" [(ngModel)]="productoNuevo.esDestacado"> Destacado</label>
+  <label class="opcion"><input name="disponibleProducto" type="checkbox" [(ngModel)]="productoNuevo.estaDisponible"> Disponible</label>
+
+  <div class="acciones">
+    <button type="submit" [disabled]="guardando()">
+      {{ guardando() ? 'Guardando...' : (editandoId() === null ? 'Agregar producto' : 'Actualizar producto') }}
+    </button>
+    @if (editandoId() !== null) {
+      <button type="button" class="secundario" (click)="cancelarEdicion()">Cancelar</button>
+    }
+  </div>
+</form>
+
+@if (aviso()) { <p class="aviso">{{ aviso() }}</p> }
+@if (error()) { <p class="error">{{ error() }}</p> }
+
+<div class="lista-admin">
+  <h4>Productos registrados</h4>
+  @for (producto of productos(); track producto.id) {
+    <div class="item-admin">
+      <span><strong>{{ producto.nombre }}</strong> — {{ producto.precio === null ? 'Sin precio' : producto.precio + ' Bs' }}</span>
+      <div class="acciones">
+        <button type="button" class="secundario" (click)="seleccionarParaEditar(producto)">Editar</button>
+        <button type="button" class="borrar" (click)="eliminarProducto(producto.id)">Borrar</button>
+      </div>
+    </div>
+  }
+</div>

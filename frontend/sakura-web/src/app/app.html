@@ -1,0 +1,20 @@
+<header class="header">
+  <div class="header-inner">
+    <a class="marca" routerLink="/">
+      <img class="marca-logo" [src]="cafe.logoUrl" [alt]="'Logo de ' + cafe.nombre">
+      <span class="marca-texto">{{ cafe.nombre }}</span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <a routerLink="/">Inicio</a>
+      <a routerLink="/productos">Productos</a>
+      <a routerLink="/categorias">Categorías</a>
+      <a routerLink="/eventos">Eventos</a>
+      <a routerLink="/novedades">Novedades</a>
+      <a routerLink="/sobre-nosotros">Sobre nosotros</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <router-outlet />
+</main>

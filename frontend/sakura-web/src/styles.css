@@ -1,0 +1,277 @@
+@import 'tailwindcss';
+
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #303045;
+  background: #fff9fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: #fff9fc;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.eyebrow {
+  color: #e78ebe;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  color: #8d365b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 5vw, 3.35rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.button-primary,
+.btn-vino,
+.btn-pastel,
+.button-secondary,
+.btn-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.8rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.btn-vino {
+  border: 1px solid #8d365b;
+  background: #8d365b;
+  color: #fff9fc;
+  box-shadow: 0 8px 20px rgb(141 54 91 / 16%);
+}
+
+.btn-vino:hover {
+  transform: translateY(-2px);
+  background: #752a4a;
+  border-color: #752a4a;
+}
+
+.button-primary,
+.btn-pastel {
+  border: 1px solid #8bbce4;
+  background: #a7d0f2;
+  color: #303045;
+}
+
+.button-primary:hover,
+.btn-pastel:hover {
+  transform: translateY(-2px);
+  background: #8bbce4;
+}
+
+.button-secondary,
+.btn-secundario {
+  border: 1px solid #ead8e1;
+  background: #fff;
+  color: #8d365b;
+}
+
+.button-secondary:hover,
+.btn-secundario:hover {
+  transform: translateY(-2px);
+  border-color: #e78ebe;
+  background: #f8dce8;
+}
+
+.btn-vino:focus-visible,
+.btn-pastel:focus-visible,
+.btn-secundario:focus-visible,
+.button-primary:focus-visible,
+.button-secondary:focus-visible {
+  outline: 2px solid #8d365b;
+  outline-offset: 2px;
+}
+
+.input-field {
+  width: 100%;
+  border: 1px solid #e8d9e0;
+  border-radius: 0.85rem;
+  background: #fff;
+  padding: 0.75rem 0.9rem;
+  color: #303045;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: #e78ebe;
+  box-shadow: 0 0 0 3px rgb(231 142 190 / 18%);
+}
+
+.status-error {
+  border: 1px solid #f0b8bf;
+  border-radius: 1rem;
+  background: #fff1f2;
+  padding: 1rem;
+  color: #9b2639;
+}
+
+.seccion-cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.3rem;
+}
+
+.seccion-titulo {
+  margin: 0.3rem 0 0;
+  color: #8d365b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  line-height: 1.15;
+}
+
+.cierre-visual {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid #eed6e2;
+  padding-top: 1.2rem;
+  font-size: 0.92rem;
+}
+
+.cierre-marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #8d365b;
+}
+
+.cierre-enlaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cierre-enlaces a {
+  color: #8d365b;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.datos-contacto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+  margin: 0.2rem 0;
+}
+
+.datos-contacto div {
+  border: 1px solid #eed6e2;
+  border-radius: 0.9rem;
+  background: #fff;
+  padding: 0.85rem 1rem;
+}
+
+.datos-contacto dt {
+  color: #e78ebe;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.datos-contacto dd {
+  margin: 0.25rem 0 0;
+  font-weight: 700;
+}
+
+.datos-contacto a {
+  color: #8d365b;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.seccion-experiencia,
+.seccion-contacto {
+  border: 1px solid #efd5e2;
+  border-radius: 1.5rem;
+  background: #fff;
+  padding: clamp(1.4rem, 3.5vw, 2.1rem);
+}
+
+.seccion-experiencia {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.marco-sakura {
+  border-radius: 1.1rem;
+  background: #f8dce8;
+  padding: 1.1rem;
+}
+
+.frase-mision {
+  margin: 0;
+  color: #8d365b;
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+@media (max-width: 960px) {
+  .seccion-experiencia {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button-primary,
+  .btn-vino,
+  .btn-pastel,
+  .button-secondary,
+  .btn-secundario {
+    transition: none;
+  }
+
+  .button-primary:hover,
+  .btn-vino:hover,
+  .btn-pastel:hover,
+  .button-secondary:hover,
+  .btn-secundario:hover {
+    transform: none;
+  }
+}

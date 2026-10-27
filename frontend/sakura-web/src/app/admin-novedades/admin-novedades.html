@@ -1,0 +1,46 @@
+<form (ngSubmit)="guardarNovedad()">
+  <h3>{{ editandoId() === null ? 'Agregar novedad' : 'Editar novedad' }}</h3>
+
+  <label>Título
+    <input name="tituloNovedad" [(ngModel)]="novedadNueva.titulo" required minlength="2" maxlength="160">
+  </label>
+
+  <label>Resumen
+    <textarea name="resumenNovedad" [(ngModel)]="novedadNueva.resumen" required maxlength="500"></textarea>
+  </label>
+
+  <label>Contenido
+    <textarea name="contenidoNovedad" [(ngModel)]="novedadNueva.contenido" required maxlength="12000"></textarea>
+  </label>
+
+  <label>URL de imagen
+    <input name="imagenNovedad" [(ngModel)]="novedadNueva.imagenUrl" maxlength="500">
+  </label>
+
+  <label class="opcion"><input name="publicadaNovedad" type="checkbox" [(ngModel)]="novedadNueva.estaPublicada"> Publicada</label>
+
+  <div class="acciones">
+    <button type="submit" [disabled]="guardando()">
+      {{ guardando() ? 'Guardando...' : (editandoId() === null ? 'Agregar novedad' : 'Actualizar novedad') }}
+    </button>
+    @if (editandoId() !== null) {
+      <button type="button" class="secundario" (click)="cancelarEdicion()">Cancelar</button>
+    }
+  </div>
+</form>
+
+@if (aviso()) { <p class="aviso">{{ aviso() }}</p> }
+@if (error()) { <p class="error">{{ error() }}</p> }
+
+<div class="lista-admin">
+  <h4>Novedades registradas</h4>
+  @for (novedad of novedades(); track novedad.id) {
+    <div class="item-admin">
+      <span><strong>{{ novedad.titulo }}</strong> — {{ novedad.estaPublicada ? 'Publicada' : 'Borrador' }}</span>
+      <div class="acciones">
+        <button type="button" class="secundario" (click)="seleccionarParaEditar(novedad)">Editar</button>
+        <button type="button" class="borrar" (click)="eliminarNovedad(novedad.id)">Borrar</button>
+      </div>
+    </div>
+  }
+</div>

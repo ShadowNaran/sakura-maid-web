@@ -1,0 +1,16 @@
+export const CAFE_CONFIG = {
+  nombre: 'Sakura Maid Café',
+  descripcion: 'Un espacio inspirado en la cultura japonesa para disfrutar de buena comida, café y momentos especiales.',
+  direccion: 'Av. Los Sauces, Tarija, Bolivia',
+  telefono: '+591 72961441',
+  telefonoHref: '+59172961441',
+  horarioAtencion: 'Consulta nuestros canales oficiales para conocer el horario actualizado.',
+  enlaceWhatsApp: 'https://wa.me/59172961441',
+  enlacePedidos: 'https://linktr.ee/sakuramaid',
+  enlaceInstagram: 'https://www.instagram.com/sakuramaid_tja',
+  enlaceTikTok: 'https://www.tiktok.com/@sakuramaid',
+  enlaceFacebook: 'https://www.facebook.com/sakuramaid',
+  enlaceMapa: 'https://www.google.com/maps/search/?api=1&query=Sakura+Maid+Cafe+Av+Los+Sauces+Tarija+Bolivia',
+  logoUrl: 'https://i.ibb.co/BVMyqGSN/logo-sakura.webp',
+  presentacionUrl: 'https://i.ibb.co/jpmhQNP/hero-sakura.webp',
+} as const;

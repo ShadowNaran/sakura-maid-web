@@ -1,0 +1,11 @@
+section { width: min(900px, calc(100% - 2rem)); margin: 2rem auto; }
+ul { display: grid; gap: 1rem; padding: 0; list-style: none; }
+.categoria-item { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; border: 1px solid #ead8e1; border-radius: 1rem; background: white; padding: 1rem; cursor: pointer; transition: border-color 160ms ease, background-color 160ms ease; }
+.categoria-item.activa { border-color: #e78ebe; background: #fff4fa; }
+.info-categoria { display: grid; gap: 0.35rem; }
+.acciones-categoria { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+.boton-ver { border: 0; border-radius: 999px; background: #e78ebe; padding: 0.55rem 1rem; color: white; font-weight: 700; }
+.enlace-catalogo { border: 1px solid #ead8e1; border-radius: 999px; background: white; padding: 0.5rem 0.9rem; font-size: 0.9rem; font-weight: 700; text-decoration: none; }
+.productos-categoria { margin-top: 2rem; }
+.productos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+.error { color: #9b2639; }

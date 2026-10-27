@@ -1,0 +1,53 @@
+<section>
+  <h2>Categorías</h2>
+  <p>Selecciona una categoría para ver sus productos.</p>
+
+  @if (cargando()) { <p>Cargando categorías...</p> }
+  @else if (error()) { <p class="error">{{ error() }}</p> }
+  @else if (categorias().length === 0) { <p>No hay categorías registradas.</p> }
+  @else {
+    <ul>
+      @for (categoria of categorias(); track categoria.id) {
+        <li
+          class="categoria-item"
+          [class.activa]="categoriaSeleccionada()?.id === categoria.id"
+          (click)="seleccionarCategoria(categoria)">
+          <div class="info-categoria">
+            <strong>{{ categoria.nombre }}</strong>
+            <span>{{ categoria.descripcion || 'Sin descripción' }}</span>
+            <small>Productos: {{ categoria.cantidadProductos }}</small>
+          </div>
+          <div class="acciones-categoria">
+            <button type="button" class="boton-ver">
+              {{ categoriaSeleccionada()?.id === categoria.id ? 'Ocultar productos' : 'Ver productos' }}
+            </button>
+            <a
+              class="enlace-catalogo"
+              routerLink="/productos"
+              [queryParams]="{ categoriaId: categoria.id }"
+              (click)="$event.stopPropagation()">
+              Abrir en catálogo
+            </a>
+          </div>
+        </li>
+      }
+    </ul>
+
+    @if (categoriaSeleccionada(); as seleccionada) {
+      <div class="productos-categoria">
+        <h3>Productos en {{ seleccionada.nombre }}</h3>
+        @if (errorProductos()) {
+          <p class="error">{{ errorProductos() }}</p>
+        } @else if (productosDeCategoria().length === 0) {
+          <p>No hay productos registrados en esta categoría.</p>
+        } @else {
+          <div class="productos-grid">
+            @for (producto of productosDeCategoria(); track producto.id) {
+              <app-producto-card [producto]="producto" (verDetalle)="abrirDetalle($event)" />
+            }
+          </div>
+        }
+      </div>
+    }
+  }
+</section>
